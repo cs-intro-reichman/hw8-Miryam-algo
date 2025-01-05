@@ -64,7 +64,7 @@ public class Network {
         if (pointer1 == null || this.getUser(name2) == null){
             return false;
         }
-        return (!pointer1.addFollowee(name2));
+        return (pointer1.addFollowee(name2));
     }
     
     /** For the user with the given name, recommends another user to follow. The recommended user is
@@ -92,7 +92,7 @@ public class Network {
     public String mostPopularUser() {
         int max = 0;
         int numberOfOccurences;
-        String nameOfMostPopular = "";
+        String nameOfMostPopular = "null";
         for (int i = 0; i < userCount; i++){
             numberOfOccurences = followeeCount(users[i].getName());
             if (numberOfOccurences > max){
@@ -121,9 +121,10 @@ public class Network {
     // Returns a textual description of all the users in this network, and who they follow.
     public String toString() {
         String ans = "Network:\n";
-            for (int i = 0; i < userCount; i++) {
+            for (int i = 0; i < userCount - 1; i++) {
                 ans = ans + users[i] + "\n";
             }
+        ans = ans + users[userCount - 1];
         return ans;
         }
 }
