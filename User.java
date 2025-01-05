@@ -59,6 +59,9 @@
         if (fCount == follows.length - 1){
             return false;
         }
+        if (this.getName().equals(name)){
+            return false;
+        }
         for (int i = 0; i < fCount; i++){
             if (follows[i].equals(name)){
                 return false;
