@@ -43,6 +43,10 @@
 
     /** If this user follows the given name, returns true; otherwise returns false. */
     public boolean follows(String name) {
+        if (name.charAt(0) < 'A' || name.charAt(0) > 'Z'){
+            char firstLetter = (char)(name.charAt(0) - ('a' - 'A'));
+            name = firstLetter + name.substring(1);
+        }
         for (int i = 0; i < fCount; i ++){
             if (follows[i].equals(name)){
                 return true;
@@ -61,6 +65,10 @@
         }
         if (this.getName().equals(name)){
             return false;
+        }
+        if (name.charAt(0) < 'A' || name.charAt(0) > 'Z'){
+            char firstLetter = (char)(name.charAt(0) - ('a' - 'A'));
+            name = firstLetter + name.substring(1);
         }
         for (int i = 0; i < fCount; i++){
             if (follows[i].equals(name)){
