@@ -60,7 +60,7 @@
         if (name.length() == 0){
             return false;
         }
-        if (fCount == follows.length - 1){
+        if (fCount == follows.length){
             return false;
         }
         if (this.getName().equals(name)){
@@ -104,11 +104,10 @@
     /** Counts the number of users that both this user and the other user follow.
     /*  Notice: This is the size of the intersection of the two follows lists. */
     public int countMutual(User other) {
-
         int count = 0;
-        for (int i = 0; i < maxfCount; i++){
-            if (this.follows[i] != null){
-                if(other.follows(this.follows[i])){
+        for (int i = 0; i < this.fCount; i++){
+            for (int j = 0; j < other.fCount; j++){
+                if (this.follows[i].equals(other.follows[j])){
                     count++;
                 }
             }
